@@ -1,9 +1,9 @@
-# Your Name Here
+# Isabella Cardoso
 # UWYO COSC 1010
-# Submission Date
-# Lab XX
-# Lab Section: 
-# Sources, people worked with, help given to: 
+# 11/22/2024
+# Lab 10
+# Lab Section: 12
+# Sources, people worked with, help given to: Kelly Joyce
 # your
 # comments
 # here
@@ -30,13 +30,32 @@ def get_hash(to_hash):
 #   - You can use the provided `get_hash()` function to generate the hashes.
 #   - Be careful, as "hello" and "hello " would generate a different hash.
 
+try:
+    password = Path('hash')
+    hash = password.read_text()
+except:
+    print("this file does not exist")
+
 # You will need to include a try-except-catch block in your code.
 # - The reading of files needs to occur in the try blocks.
 
+try:
+    possible_passwords = Path('rockyou.txt')
+    passwords = possible_passwords.read_text()
+except:
+    print("This file does not exist")
+else:
+    passwords = passwords.splitlines()
 
 # - Read in the value stored within `hash`.
 #   - You must use a try and except block.
 
+for line in passwords:
+    hash_it = get_hash(line)
+
+    if hash_it == hash:
+        print(line)
+        break
 
 # Read in the passwords in `rockyou.txt`.
 # - Again, you need a try-except-else block.
